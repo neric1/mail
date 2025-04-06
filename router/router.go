@@ -20,7 +20,7 @@ func NewRouter(
 		c.Next()
 	})
 	router.GET("", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, "welcome home")
+		ctx.JSON(http.StatusOK, "Mailer: welcome home")
 	})
 
 	router.POST("/sendEmail", usersController.SendEmail)
