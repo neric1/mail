@@ -13,7 +13,12 @@ func NewRouter(
 ) *gin.Engine {
 	router := gin.Default()
 	// add swagger
-
+	// CORS middleware
+	router.Use(func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "*")
+		c.Next()
+	})
 	router.GET("", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, "welcome home")
 	})
