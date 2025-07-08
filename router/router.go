@@ -33,6 +33,7 @@ func NewRouter(
 	})
 
 	router.POST("/sendEmail", usersController.SendEmail)
+	router.POST("/sendEmailWithAttachement", usersController.SendEmailWithAttachement)
 
 	return router
 }
