@@ -21,10 +21,10 @@ func NewRouter(
 	// 	c.Next()
 	// })
 	corsConfig := cors.Config{
-		AllowOrigins:     []string{"https://idsr.afro.who.int"},     // Allow only this origin
-		AllowMethods:     []string{"GET", "POST", "OPTIONS"},        // Allow only these HTTP methods
-		AllowHeaders:     []string{"Content-Type", "Authorization"}, // Allow these headers
-		AllowCredentials: true,                                      // Allow credentials (cookies, authorization headers, etc.)
+		AllowOrigins:     []string{"https://idsr.afro.who.int", "http://localhost:3000"}, // Allow only this origin
+		AllowMethods:     []string{"GET", "POST", "OPTIONS"},                             // Allow only these HTTP methods
+		AllowHeaders:     []string{"Content-Type", "Authorization"},                      // Allow these headers
+		AllowCredentials: true,                                                           // Allow credentials (cookies, authorization headers, etc.)
 	}
 
 	router.Use(cors.New(corsConfig))
