@@ -90,7 +90,7 @@ func (controller *UsersController) SendEmailWithAttachement(ctx *gin.Context) {
 
 	// Construct the email message
 	m := gomail.NewMessage()
-	m.SetHeader("From", senderEmail)
+	m.SetAddressHeader("From", senderEmail, "WHO-IDSR PLATFORM Cholera Weekly update")
 	m.SetHeader("To", recipients...)
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/html", body)
