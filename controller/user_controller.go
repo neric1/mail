@@ -34,7 +34,8 @@ func (controller *UsersController) SendEmail(ctx *gin.Context) {
 
 	// Create a new email message
 	m := gomail.NewMessage()
-	m.SetHeader("From", senderEmail)
+	m.SetAddressHeader("From", senderEmail, "WHO-IDSR PLATFORM message [No reply]")
+	// m.SetHeader("From", senderEmail)
 	m.SetHeader("To", emailRequest.Recipients...) // Change this to recipient's email //"HTML Email Test"
 	m.SetHeader("Subject", emailRequest.Subject)  //`<h1>Hello, World!</h1><p>This is an <strong>HTML</strong> email.</p>`
 	m.SetBody("text/html", emailRequest.Body)
